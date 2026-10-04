@@ -1,0 +1,116 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid v.$line-dark;
+  background: rgba(21, 18, 15, 0.92);
+
+  @include m.bp-down(v.$bp-md) {
+    padding: 16px 20px;
+  }
+}
+
+.light {
+  background: rgba(247, 242, 231, 0.92);
+  border-bottom: 1px solid v.$line-light;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: v.$font-display;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: v.$pale;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  @include m.focus-ring;
+}
+
+.brandLight {
+  color: v.$ink-text;
+}
+
+.mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid v.$brass;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: v.$font-mono;
+  font-size: 11px;
+  color: v.$brass;
+  flex-shrink: 0;
+}
+
+.navlinks {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.navlink {
+  background: none;
+  border: 1px solid transparent;
+  color: v.$muted;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  @include m.focus-ring;
+
+  &:hover {
+    color: v.$pale;
+    border-color: v.$line-dark;
+  }
+
+  @include m.bp-down(v.$bp-sm) {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+.navlinkLight {
+  color: v.$muted-dark;
+
+  &:hover {
+    color: v.$ink-text;
+  }
+}
+
+.active {
+  color: v.$ink;
+  background: v.$brass;
+  border-color: v.$brass;
+
+  &:hover {
+    color: v.$ink;
+  }
+}
+
+.activeLight {
+  color: v.$ivory;
+  background: v.$ink-text;
+  border-color: v.$ink-text;
+
+  &:hover {
+    color: v.$ivory;
+  }
+}
