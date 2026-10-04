@@ -1,0 +1,42 @@
+@use "variables" as v;
+
+@mixin bp-down($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin bp-up($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid v.$brass-bright;
+    outline-offset: 2px;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: v.$max-width;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  @include bp-down(v.$bp-md) {
+    padding: 0 20px;
+  }
+}
+
+@mixin card($bg: #fff) {
+  background: $bg;
+  border: 1px solid v.$line-light;
+  border-radius: v.$radius-md;
+}
