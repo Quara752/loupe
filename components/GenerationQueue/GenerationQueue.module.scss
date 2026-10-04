@@ -1,0 +1,135 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.queueWrap {
+  padding: 70px 0 100px;
+  max-width: 640px;
+  margin: 0 auto;
+
+  @include m.bp-down(v.$bp-md) {
+    padding: 44px 0 72px;
+  }
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.kicker {
+  color: v.$brass;
+  margin-bottom: 14px;
+}
+
+.head h2 {
+  font-family: v.$font-display;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 30px;
+  margin: 0 0 10px;
+  color: v.$pale;
+
+  @include m.bp-down(v.$bp-md) {
+    font-size: 24px;
+  }
+}
+
+.head p {
+  color: v.$muted;
+  font-size: 13.5px;
+}
+
+.list {
+  border-top: 1px solid v.$line-dark;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 4px;
+  border-bottom: 1px solid v.$line-dark;
+}
+
+.num {
+  font-family: v.$font-mono;
+  font-size: 12px;
+  color: v.$muted;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.name {
+  flex: 1;
+  font-size: 14px;
+  color: v.$pale;
+}
+
+.status {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.spin {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid v.$line-dark;
+  border-top-color: v.$brass;
+  animation: spin 0.8s linear infinite;
+
+  @include m.reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.check {
+  color: v.$ok;
+  font-size: 15px;
+}
+
+.fail {
+  color: v.$ember-bright;
+  font-size: 15px;
+}
+
+.queuedLabel {
+  color: v.$muted;
+  font-size: 12px;
+}
+
+.thumb {
+  width: 34px;
+  height: 34px;
+  border-radius: v.$radius-sm;
+  object-fit: cover;
+  border: 1px solid v.$line-dark;
+  flex-shrink: 0;
+  background: v.$ink-3;
+}
+
+.progressLine {
+  margin-top: 36px;
+  text-align: center;
+  font-family: v.$font-mono;
+  font-size: 12.5px;
+  color: v.$muted;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
